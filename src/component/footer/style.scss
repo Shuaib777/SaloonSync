@@ -1,3 +1,5 @@
+@import "../../mixins.scss";
+
 .footer {
   position: relative;
   bottom: 0;
@@ -8,6 +10,11 @@
   padding: 60px 150px;
   background-color: var(--gray5);
   gap: 40px;
+
+  @include sm {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 
   a {
     text-decoration: none;
@@ -54,9 +61,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 
     .copyright {
       font-size: 18px;
+
+      @include sm {
+        font-size: 14px;
+      }
     }
 
     .icons {
@@ -64,6 +76,10 @@
       align-items: center;
       justify-content: center;
       gap: 40px;
+
+      @include sm {
+        gap: 5px;
+      }
 
       a {
         display: flex;
@@ -75,15 +91,32 @@
         border: 5px solid #d8e2dc;
         transition: all 0.5s ease;
 
+        @include sm {
+          border: 2px solid #d8e2dc;
+        }
+
+        @include sm {
+          padding: 10px;
+        }
+
         &:hover {
           border: 5px solid #bc2a8d;
           box-shadow: 0 0 15px #bc2a8d;
           color: #bc2a8d;
+
+          @include sm {
+            border: 2px solid #bc2a8d;
+          }
         }
 
         svg {
           width: 20px;
           height: 20px;
+
+          @include sm {
+            width: 10px;
+            height: 10px;
+          }
         }
       }
     }

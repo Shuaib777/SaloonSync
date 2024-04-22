@@ -34,6 +34,7 @@
 
       @include sm {
         flex-direction: column;
+        padding: 0 20px;
       }
 
       .heading {
@@ -69,7 +70,7 @@
         @include sm {
           font-size: 16px;
           gap: 20px;
-          margin-bottom: -40px;
+          padding-bottom: 20px;
         }
 
         .item {
@@ -84,7 +85,6 @@
           cursor: pointer;
           box-shadow: 10px 10px 10px rgba(193, 185, 185, 0.5);
           transition: all ease 0.3s;
-          padding: 0 10px;
 
           @include sm {
             border-radius: 20px;
