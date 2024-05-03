@@ -77,9 +77,13 @@ const Header = () => {
         <li className="menuItem" onClick={() => navigate("/cart")}>
           Cart
         </li>
-        <li className="menuItem" onClick={() => navigate("/contact")}>
-          Contact Us
-        </li>
+        <a
+          style={{ color: "inherit", textDecoration: "none" }}
+          className="menuItem"
+          href="https://eacd6ae1c4367b0861.gradio.live"
+        >
+          AI Suggestion
+        </a>
         {user ? (
           <li
             className="menuItem logDetail"

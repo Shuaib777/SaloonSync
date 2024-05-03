@@ -1,0 +1,60 @@
+@import "../../mixins.scss";
+
+.accordionComp {
+  margin-bottom: 2px;
+
+  .accordion {
+    background-color: var(--gray4);
+    color: white;
+
+    @include sm {
+      font-size: 14px;
+    }
+
+    .heading {
+      font-size: 24px;
+      font-weight: bold;
+
+      @include sm {
+        font-size: 18px;
+      }
+    }
+
+    svg {
+      width: 25px;
+      height: 25px;
+      color: white;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid rgb(161, 156, 156);
+
+      .name {
+        width: 100px;
+      }
+
+      .priceTime {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .addButton {
+        background-color: white;
+        color: var(--gray4);
+        padding: 20px 15px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        @include sm {
+          padding: 15px 10px;
+        }
+      }
+    }
+  }
+}

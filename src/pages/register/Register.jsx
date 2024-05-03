@@ -12,6 +12,7 @@ import "./style.scss";
 import BackgroundImage3 from "../../assets/backgroundImage3.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -43,6 +44,12 @@ const Register = () => {
 
         await update(refdb(database, "user/" + userCredential.user.uid), {
           userName,
+          email,
+        });
+
+        axios.post("/api/users", {
+          userId: userCredential.user.uid,
+          username: userName,
           email,
         });
 
