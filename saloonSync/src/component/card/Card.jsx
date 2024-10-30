@@ -3,6 +3,7 @@ import "./style.scss";
 import { useNavigate } from "react-router-dom";
 
 const Card = ({ data }) => {
+  console.log(data);
   const navigate = useNavigate();
   return (
     <div

@@ -31,7 +31,7 @@ const Explore = () => {
           <Filter />
           <div className="cardsContainer">
             <div className="cardsContainerHeader">
-              <div className="heading">Salons</div>
+              <div className="heading">Saloons</div>
               <div
                 className="icon"
                 onClick={() => setMobileCondition((prev) => !prev)}
