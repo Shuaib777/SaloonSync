@@ -18,6 +18,8 @@ const Explore = () => {
 
   const { data, loading } = useSaloon();
 
+  console.log(data);
+
   return (
     <div className="explore">
       {!loading ? (
@@ -38,7 +40,7 @@ const Explore = () => {
               </div>
             </div>
             <div className="cards">
-              {data?.map((data, id) => (
+              {data?.saloons?.map((data, id) => (
                 <Card data={data} key={id} />
               ))}
             </div>
