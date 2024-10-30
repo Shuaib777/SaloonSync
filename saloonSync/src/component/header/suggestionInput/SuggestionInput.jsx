@@ -59,7 +59,7 @@ const SuggestionInput = ({ isSmallDevice, handleSearchBar }) => {
 
       {data?.length > 0 && (
         <div className="suggestionBox">
-          {data?.slice(0, 10).map((saloon, i) => (
+          {data?.slice(0, 10)?.map((saloon, i) => (
             <div
               className={`suggestion ${
                 suggestionIndex === i ? "selected" : ""

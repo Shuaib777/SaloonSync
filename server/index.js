@@ -10,7 +10,12 @@ const { saloonsRouter } = require("./routes/saloonsRoute.js");
 app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/saloons", saloonsRouter);
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://saloonsyncc.onrender.com",
+    optionsSuccessStatus: 200,
+  })
+);
 
 mongoose
   .connect(process.env.MONGO_URI)
