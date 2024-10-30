@@ -1,0 +1,238 @@
+@import "../../mixins.scss";
+
+.home {
+  width: 100%;
+  background-color: var(--gray4);
+
+  .heroBanner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+      }
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 120px;
+
+      @include sm {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      .heading {
+        flex-basis: 50%;
+        font-size: 60px;
+        padding: 0 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        @include sm {
+          font-size: 30px;
+        }
+
+        span {
+          color: var(--yellow2);
+        }
+      }
+
+      .items {
+        flex-basis: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 40px;
+        margin-bottom: -60px;
+        font-size: 18px;
+
+        @include sm {
+          font-size: 16px;
+          gap: 20px;
+          padding-bottom: 20px;
+        }
+
+        .item {
+          width: 80%;
+          aspect-ratio: 16/9;
+          display: flex;
+          align-items: center;
+          background-color: var(--yellow2);
+          gap: 20px;
+          border-radius: 40px;
+          overflow: hidden;
+          cursor: pointer;
+          box-shadow: 10px 10px 10px rgba(193, 185, 185, 0.5);
+          transition: all ease 0.3s;
+
+          @include sm {
+            border-radius: 20px;
+          }
+
+          &:last-child {
+            background-color: white;
+            color: var(--yellow2);
+          }
+
+          p {
+            width: 50%;
+            text-align: center;
+            line-height: 25px;
+
+            @include sm {
+              text-align: start;
+              padding: 20px;
+            }
+          }
+
+          img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          &:hover {
+            scale: 1.05;
+            box-shadow: 12px 12px 10px rgba(193, 185, 185, 0.5);
+          }
+
+          &:active {
+            scale: 0.95;
+            box-shadow: 8px 8px 10px rgba(193, 185, 185, 0.5);
+          }
+        }
+      }
+    }
+  }
+  .descriptionSection {
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+
+    @include sm {
+      flex-direction: column;
+      padding: 60px 20px;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .description {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 0 40px;
+
+      @include sm {
+        width: 100%;
+        padding: 0;
+      }
+
+      .heading {
+        font-size: 32px;
+        font-weight: bold;
+
+        @include sm {
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+
+      .content {
+        font-size: 14px;
+        line-height: 30px;
+        padding-right: 50px;
+        font-weight: 700;
+        text-align: start;
+
+        @include sm {
+          padding: 0;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .services {
+      width: 50%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      background: linear-gradient(to right, var(--gray5), var(--gray4));
+      padding: 20px 40px;
+      border-radius: 20px;
+      font-size: 12px;
+
+      @include sm {
+        width: 100%;
+      }
+
+      .heading {
+        font-size: 32px;
+        font-weight: bold;
+
+        @include sm {
+          font-size: 24px;
+        }
+      }
+
+      .items {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+
+          svg {
+            height: 60px;
+            width: 60px;
+
+            @include sm {
+              height: 40px;
+              width: 40px;
+            }
+          }
+
+          p {
+            width: 100%;
+
+            .subheading {
+              font-size: 18px;
+              font-weight: bold;
+              display: block;
+              margin-bottom: 15px;
+
+              @include sm {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

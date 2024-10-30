@@ -1,0 +1,181 @@
+@import "../../mixins.scss";
+
+.details {
+  width: 100%;
+  height: 100%;
+  padding: 100px 150px 20px 150px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include sm {
+    padding: 100px 20px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .detailsBanner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--gray5);
+
+    @include sm {
+      flex-direction: column;
+      font-size: 14px;
+    }
+
+    .imageContainer {
+      flex-basis: 70%;
+
+      img {
+        height: 60vh;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+
+        @include sm {
+          height: 30vh;
+        }
+      }
+    }
+
+    .bannerContent {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 30%;
+      padding: 20px;
+      gap: 30px;
+      justify-content: center;
+
+      .name {
+        font-size: 32px;
+        font-weight: bold;
+
+        @include sm {
+          font-size: 24px;
+        }
+      }
+
+      .address {
+        opacity: 0.8;
+        width: 100%;
+        line-height: 20px;
+        border-bottom: 1px solid gray;
+        padding-bottom: 10px;
+      }
+
+      .category {
+        opacity: 0.8;
+        display: flex;
+        gap: 10px;
+      }
+
+      .book {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .bookButton {
+          font-size: 18px;
+          background-color: var(--yellow2);
+          padding: 10px 40px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all ease 0.3s;
+          color: var(--gray5);
+
+          @include sm {
+            font-size: 14px;
+          }
+
+          &:hover {
+            scale: 1.1;
+          }
+
+          &:active {
+            scale: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .contentHeading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray4);
+      padding-bottom: 20px;
+
+      .heading {
+        font-size: 32px;
+        font-weight: bold;
+
+        @include sm {
+          font-size: 24px;
+        }
+
+        &.active {
+          color: var(--yellow2);
+        }
+      }
+
+      .searchMenu {
+        display: flex;
+        align-items: center;
+        background-color: var(--gray5);
+        border-radius: 40px;
+        padding: 15px 20px;
+        width: 400px;
+
+        @include sm {
+          width: 200px;
+        }
+
+        input {
+          color: white;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: calc(100% - 25px);
+          font-size: 18px;
+
+          @include sm {
+            font-size: 16px;
+          }
+        }
+
+        .icon {
+          width: 25px;
+          cursor: pointer;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .loading {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

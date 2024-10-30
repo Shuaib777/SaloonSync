@@ -1,0 +1,128 @@
+@import "../../mixins.scss";
+
+.filter {
+  width: 200px;
+  height: 100%;
+  background-color: var(--gray5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+
+  @include sm {
+    display: none;
+    position: absolute;
+    left: 20px;
+  }
+
+  .box {
+    width: 100%;
+    padding: 40px 20px;
+    border-bottom: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .preference {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .prefHeading {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+
+        @include sm {
+          display: none;
+        }
+      }
+    }
+
+    .heading {
+      font-weight: bold;
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input[type="radio"] {
+          -webkit-appearance: none;
+
+          border-radius: 50%;
+          height: 15px;
+          width: 15px;
+          border: 2px solid white;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            height: 7px;
+            width: 7px;
+            // border: 2px solid var(--yellow1);
+            background-color: var(--yellow1);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 0.3s transform ease-in-out;
+          }
+
+          &:checked::before {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  .range {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      max-width: 60px;
+      border: none;
+      outline: none;
+      background-color: var(--gray2);
+      color: var(--gray5);
+      padding: 6px 8px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+      border-radius: 2px;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}

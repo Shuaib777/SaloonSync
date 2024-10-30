@@ -1,0 +1,256 @@
+@import "../../mixins.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba($color: #000000, $alpha: 0.2);
+  padding: 0px 150px;
+  font-size: 24px;
+  transition: all ease 0.3s;
+
+  @include sm {
+    padding: 0px 20px;
+  }
+
+  &.top {
+    background: rgba($color: #000000, $alpha: 0.4);
+  }
+
+  .show {
+    transform: translateY(0);
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+  }
+
+  .logo {
+    cursor: pointer;
+
+    span {
+      font-size: 32px;
+      font-weight: 900;
+      background: linear-gradient(45deg, var(--yellow1), var(--yellow2));
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+
+      @include sm {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .menuItems {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+
+    @include sm {
+      display: none;
+    }
+
+    .menuItem {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 5px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        background-color: var(--yellow1);
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &:hover {
+        color: #eecf95;
+
+        &::before {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+
+      &.logDetail {
+        padding: 10px 20px;
+        border-radius: 40px;
+        background: var(--yellow2);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+        transition: all ease 0.3s;
+
+        &:hover {
+          scale: 1.1;
+          box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.6);
+          color: white;
+        }
+
+        &:active {
+          scale: 0.9;
+          box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .mobileMenuItems {
+    display: none;
+
+    @include sm {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+
+  .userImage {
+    width: 50px;
+    height: 50px;
+
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &.showMobileMenu {
+    background: rgba(0, 0, 0, 0.6);
+
+    .menuItems {
+      width: 100%;
+      display: flex;
+      position: absolute;
+      align-items: flex-start;
+      top: 80px;
+      left: 0;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      animation: slidingX 0.3s ease forwards;
+
+      .userImage {
+        display: none;
+      }
+    }
+  }
+  .searchBar {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: 85px;
+    left: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0 20px;
+    animation: slidingX 0.3s ease forwards;
+
+    .searchInput {
+      display: flex;
+    }
+  }
+  .searchInput {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--gray4);
+    border-radius: 40px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    padding: 10px;
+    flex-shrink: 0;
+
+    @include sm {
+      display: none;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    svg {
+      margin-left: 10px;
+      cursor: pointer;
+      height: 100%;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    input {
+      width: calc(100% - 40px);
+      height: 100%;
+      background: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      padding-left: 10px;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+  }
+
+  .suggestionBox {
+    width: 100%;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    background-color: var(--gray4);
+    border-radius: 10px;
+    color: white;
+
+    .suggestion {
+      border-bottom: 1px solid white;
+      padding: 10px 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.selected {
+        background-color: rgb(36, 33, 33);
+      }
+    }
+  }
+}
+
+@keyframes slidingX {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

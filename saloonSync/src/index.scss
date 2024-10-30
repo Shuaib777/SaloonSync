@@ -1,0 +1,67 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+
+  --gray1: #625d59;
+  --gray2: #cec5c0;
+  --gray3: #b4b4ac;
+  --gray4: rgb(60, 55, 55);
+  --gray5: rgb(44, 42, 42);
+  --yellow1: #fdc85e;
+  --yellow2: #d6b36c;
+  --gradient: linear-gradient(
+    90deg,
+    hsl(27deg 12% 19%) 0%,
+    hsl(25deg 6% 42%) 23%,
+    hsl(22deg 9% 69%) 45%,
+    hsl(29deg 10% 75%) 65%,
+    hsl(44deg 7% 72%) 78%,
+    hsl(50deg 4% 69%) 87%,
+    hsl(345deg 3% 70%) 94%,
+    hsl(300deg 5% 69%) 100%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: var(--gradient);
+  color: white;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gray1);
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+    background-image: linear-gradient(
+      90deg,
+      hsl(24deg 4% 25%) 0%,
+      hsl(23deg 5% 27%) 27%,
+      hsl(22deg 5% 30%) 49%,
+      hsl(22deg 6% 33%) 64%,
+      hsl(22deg 7% 36%) 79%,
+      hsl(21deg 7% 40%) 100%
+    );
+    content: "";
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
